@@ -78,18 +78,18 @@ class RestaurantTest {
 
     @Test
     public void calculate_order_value_should_return_the_same_amount_for_one_selected_dish() {
-        selectedItems.add("Sizzling brownie");
+        selectedItems.add("Vegetable lasagne");
         int total = restaurant.calculateOrderValue(selectedItems);
-        assertEquals(319, total);
+        assertEquals(269, total);
     }
 
     @Test
     public void calculate_order_value_should_return_for_multiple_selected_dish() {
 
-        selectedItems.add("Sizzling brownie");
+        selectedItems.add("Vegetable lasagne");
         selectedItems.add("Sweet corn soup");
         int total = restaurant.calculateOrderValue(selectedItems);
-        assertEquals(438, total);
+        assertEquals(388, total);
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<TOTALCOST>>>>>>>>>>>>>>>>>>>>>>>>>

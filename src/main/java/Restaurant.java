@@ -18,8 +18,12 @@ public class Restaurant {
     
     // Methods takes in List of Item names and returns the sum of the item's prices.
     public int calculateOrderValue(List<String> items) {
-        return 0;
-        // Implementation pending
+        int orderValue = 0;
+        for(String itemName: items) {
+            Item item = this.findItemByName(itemName);
+            orderValue += item.getPrice();
+        }
+        return orderValue;
     }
 
     public boolean isRestaurantOpen() {
