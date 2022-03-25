@@ -12,7 +12,6 @@ class RestaurantTest {
     @Mock
     Restaurant restaurant;
     Restaurant spiedRestaurant;
-    //REFACTOR ALL THE REPEATED LINES OF CODE
 
     @BeforeEach
     public void initializingData() {
@@ -25,7 +24,6 @@ class RestaurantTest {
     }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    //-------FOR THE 2 TESTS BELOW, YOU MAY USE THE CONCEPT OF MOCKING, IF YOU RUN INTO ANY TROUBLE
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         LocalTime now = LocalTime.parse("15:00:00");
@@ -40,7 +38,6 @@ class RestaurantTest {
         assertEquals(true, restaurant.isRestaurantOpen());
 
     }
-
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
