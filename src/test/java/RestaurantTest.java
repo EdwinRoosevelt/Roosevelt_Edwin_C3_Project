@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -6,12 +9,14 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.*;
 import org.mockito.Mock;
 import org.mockito.Mockito;
- 
+
 
 class RestaurantTest {
     @Mock
     Restaurant restaurant;
     Restaurant spiedRestaurant;
+
+    List<String> selectedItems = new ArrayList<String>();
 
     @BeforeEach
     public void initializingData() {
@@ -62,4 +67,31 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<TOTALCOST>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void calculate_order_value_should_return_0_for_no_selected_dish() {
+        int total = restaurant.calculateOrderValue(selectedItems);
+        assertEquals(0, total);
+    }
+
+    @Test
+    public void calculate_order_value_should_return_the_same_amount_for_one_selected_dish() {
+        selectedItems.add("Sizzling brownie");
+        int total = restaurant.calculateOrderValue(selectedItems);
+        assertEquals(319, total);
+    }
+
+    @Test
+    public void calculate_order_value_should_return_for_multiple_selected_dish() {
+
+        selectedItems.add("Sizzling brownie");
+        selectedItems.add("Sweet corn soup");
+        int total = restaurant.calculateOrderValue(selectedItems);
+        assertEquals(438, total);
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<TOTALCOST>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }

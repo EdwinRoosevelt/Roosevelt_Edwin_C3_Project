@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,12 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
     
+    // Methods takes in List of Item names and returns the sum of the item's prices.
+    public int calculateOrderValue(List<String> items) {
+        return 0;
+        // Implementation pending
+    }
+
     public boolean isRestaurantOpen() {
         LocalTime timeNow = this.getCurrentTime();
         return (timeNow.compareTo(this.openingTime) > 0 && timeNow.compareTo(this.closingTime) < 0);
@@ -51,6 +56,7 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
